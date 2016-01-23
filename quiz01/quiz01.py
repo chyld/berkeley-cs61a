@@ -23,7 +23,7 @@ def diff(x, y, z):
     False
     """
     "*** YOUR CODE HERE ***"
-    return x - y == z or x - z == y or y - x == z or y - z == x or z - x == y or z - y == x
+    return x - y == z or y - x == z or z - y == x
 
 def abundant(n):
     """Print all ways of forming positive integer n by multiplying two positive
