@@ -1,3 +1,6 @@
+from math import *
+from functools import reduce
+
 def diff(x, y, z):
     """Return whether one argument is the difference between the other two.
 
@@ -64,7 +67,11 @@ def abundant(n):
     True
     """
     "*** YOUR CODE HERE ***"
-
+    numbers = [x for x in range(1, n+1) if not(n % x)]
+    sum = reduce((lambda a, b: a + b), numbers) - n
+    for num in range(ceil(len(numbers)/2)):
+        print(str(numbers[num]) + ' * ' + str(numbers[(-1 * num) - 1]))
+    return sum > n
 
 def amicable(n):
     """Return the smallest amicable number greater than positive integer n.
