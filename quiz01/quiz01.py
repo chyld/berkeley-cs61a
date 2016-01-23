@@ -70,7 +70,7 @@ def abundant(n):
     numbers = [x for x in range(1, n+1) if not(n % x)]
     sum = reduce((lambda a, b: a + b), numbers) - n
     for num in range(ceil(len(numbers)/2)):
-        print(str(numbers[num]) + ' * ' + str(numbers[(-1 * num) - 1]))
+        print(numbers[num], '*', numbers[(-1 * num) - 1])
     return sum > n
 
 def amicable(n):
