@@ -26,6 +26,8 @@ def diff(x, y, z):
     False
     """
     "*** YOUR CODE HERE ***"
+
+    # 3! total equations, but shrinking down to non-redundant
     return x - y == z or y - x == z or z - y == x
 
 def abundant(n):
@@ -67,6 +69,7 @@ def abundant(n):
     True
     """
     "*** YOUR CODE HERE ***"
+
     numbers = [x for x in range(1, n+1) if not(n % x)]
     sum = reduce((lambda a, b: a + b), numbers) - n
     for num in range(ceil(len(numbers)/2)):
@@ -95,3 +98,26 @@ def amicable(n):
     5020
     """
     "*** YOUR CODE HERE ***"
+
+    def sum_divisors(n):
+        """
+        for the number, n, the loop will only iterate a maximum
+        of sqrt(n) times to find all the divisors of n and return the sum
+        """
+        sum, i = 1, 2
+        while(i <= sqrt(n)):
+            if(not(n % i)):
+                sum += i + n//i
+            i += 1
+        return sum
+
+    x = 1
+    d = {}
+    while(True):
+        sum = sum_divisors(x)
+        if sum in d and d[sum] == x:
+            if sum >  n: return sum
+            if x > n: return x
+        else:
+            d[x] = sum
+        x += 1
