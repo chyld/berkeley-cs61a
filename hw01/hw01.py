@@ -8,10 +8,12 @@ def a_plus_abs_b(a, b):
     >>> a_plus_abs_b(2, -3)
     5
     """
+    "*** YOUR CODE HERE ***"
+
     if b < 0:
-        f = _____
+        f = lambda x, y: x - y
     else:
-        f = _____
+        f = lambda x, y: x + y
     return f(a, b)
 
 
@@ -30,6 +32,10 @@ def two_of_three(a, b, c):
     """
     "*** YOUR CODE HERE ***"
 
+    l = [a, b, c]
+    l.sort()
+    return l[1]**2 + l[2]**2
+
 
 def largest_factor(n):
     """Return the largest factor of n*n-1 that is smaller than n.
@@ -40,6 +46,16 @@ def largest_factor(n):
     8
     """
     "*** YOUR CODE HERE ***"
+
+    m = n * (n-1)
+    i = 0
+    while True:
+        i += 1
+        if not(m % i):
+            if i < n:
+                f = i
+            else:
+                return f
 
 
 def if_function(condition, true_result, false_result):
@@ -104,4 +120,3 @@ def hailstone(n):
 challenge_question_program = """
 "*** YOUR CODE HERE ***"
 """
-
