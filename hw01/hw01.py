@@ -116,6 +116,20 @@ def hailstone(n):
     """
     "*** YOUR CODE HERE ***"
 
+    s = 0;
+    while True:
+        print(n)
+        s += 1
+        if n == 1:
+            return s
+        else:
+            if n % 2:
+                n = (n * 3) + 1
+            else:
+                n //= 2
+
+
+
 
 challenge_question_program = """
 "*** YOUR CODE HERE ***"
