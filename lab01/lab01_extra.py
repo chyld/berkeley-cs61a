@@ -1,3 +1,5 @@
+from functools import reduce
+
 """Coding practice for Lab 1."""
 
 # While Loops
@@ -15,6 +17,10 @@ def factors(n):
     """
     "*** YOUR CODE HERE ***"
 
+    nums = [x for x in range(1, n+1) if not(n%x)]
+    nums.sort()
+    return nums
+
 
 def falling(n, k):
     """Compute the falling factorial of n to depth k.
@@ -30,3 +36,4 @@ def falling(n, k):
     """
     "*** YOUR CODE HERE ***"
 
+    return reduce(lambda acc, val: acc * val, range(n-k+1, n+1), 1)

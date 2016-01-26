@@ -10,7 +10,8 @@ def both_positive(x, y):
     >>> both_positive(1, 1)
     True
     """
-    return x and y > 0 # You can replace this line!
+
+    return x > 0 and y > 0
 
 
 # If Statements
@@ -63,10 +64,18 @@ def guess_random():
 def guess_linear():
     """Guess in increasing order and return the number of guesses."""
     prompt_for_number(LOWER, UPPER)
-    num_guesses = 1
+    num_guesses = 0
     guess = LOWER
     "*** YOUR CODE HERE ***"
-    return num_guesses
+
+    while True:
+        correct = is_correct(guess)
+        num_guesses += 1
+        if correct:
+            return num_guesses
+        else:
+            guess += 1
+
 
 def guess_binary():
     """Return the number of attempted guesses. Implement a faster search
@@ -77,11 +86,22 @@ def guess_binary():
     algorithm doesn't need to try numbers that are greater than guess.
     """
     prompt_for_number(LOWER, UPPER)
-    num_guesses = 1
+    num_guesses = 0
     lower, upper = LOWER, UPPER
-    guess = (lower + upper) // 2
     "*** YOUR CODE HERE ***"
-    return num_guesses
+
+    while True:
+        guess = (lower + upper) // 2
+        correct = is_correct(guess)
+        num_guesses += 1
+        if correct:
+            return num_guesses
+        else:
+            if(is_too_high(guess)):
+                upper = guess
+            else:
+                lower = guess
+
 
 # Receive user input. You do not need to understand the code below this line.
 
@@ -112,4 +132,3 @@ def is_yes(prompt):
         elif yes_no == 'n':
             return False
         print('Please type y or n and press return/enter')
-
