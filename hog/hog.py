@@ -1,7 +1,5 @@
 from die import Die
+from player import Player
+from game import Game
 
-d = Die(6)
-for r in range(100000):
-    d.roll()
-
-d.histogram()
+Game(Player('Bill'), Player('Sam')).play()
