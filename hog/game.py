@@ -1,5 +1,6 @@
 from functools import reduce
 from die import Die
+from strategy import Strategy
 
 class Game:
     def __init__(self, p1, p2):
@@ -38,12 +39,12 @@ class Game:
         total = reduce(lambda acc, player: acc + player.score, self.players, 0)
         return 4 if total % 7 == 0 else 6
 
-    def strategy(self):
-        return 5
-
     def swine_swap_rule(self):
         x, y = [p.score for p in self.players]
         if x * 2 == y or x // 2 == y:
             temp = self.active_player.score
             self.active_player.score = self.next_player.score
             self.next_player.score = temp
+
+    def strategy(self):
+        return Strategy.always_roll(5)
